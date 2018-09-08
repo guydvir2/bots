@@ -50,13 +50,21 @@ def handle(msg):
     if command == '/window1_up':
         win1_commands(0,1)
         msg='Window 1 set UP'
-        #bot.sendMessage(chat_id, 'Window 1 set UP')
     elif command == '/window1_down':
         win1_commands(1,1)
         msg='Window 1 set DOWN'
     elif command == '/window1_stop':
         win1_commands(1,0)
         msg='Window 1 stopped'
+    elif command == '/window2_up':
+        win2_commands(0,1)
+        msg='Window 2 set UP'
+    elif command == '/window2_down':
+        win2_commands(1,1)
+        msg='Window 2 set DOWN'
+    elif command == '/window2_stop':
+        win2_commands(1,0)
+        msg='Window 2 stopped'
     elif command == '/alarm_home_arm':
         alarm_system_commands(1,1)
         msg='Alarm System: Home Mode is ON'
@@ -85,6 +93,11 @@ def win1_commands(direction,state):
     win1.set_state(0, 0)
     win1.set_state(1, 0)
     win1.set_state(direction,state)
+    
+def win2_commands(direction,state):
+    win2.set_state(0, 0)
+    win2.set_state(1, 0)
+    win2.set_state(direction,state)
     
 def alarm_system_commands(mode, state):
     # mode = 1 : Home Arm
@@ -123,10 +136,12 @@ me = bot.getMe()
 root.title('Telegram BOT:' +me['first_name'] + '#' + str(me['id']))
 
 win1 = HWRemoteOutput(ip='192.168.2.114', output_pins=[19,26],switch_type='press')
-alarm_system = HWRemoteOutput(ip='192.168.2.117', output_pins=[16,26],switch_type='press')
-alarm_system_indicators = HWRemoteInput(ip='192.168.2.117', input_pins=[20,21],switch_mode='toggle')
+win2 = HWRemoteOutput(ip='192.168.2.116', output_pins=[19,26],switch_type='press')
 
-alarm_system_ind_commands()
+alarm_system = HWRemoteOutput(ip='192.168.2.117', output_pins=[16,26],switch_type='press')
+#alarm_system_indicators = HWRemoteInput(ip='192.168.2.117', input_pins=[20,21],switch_mode='toggle')
+
+#alarm_system_ind_commands()
 
 MessageLoop(bot, handle).run_as_thread()
 root.mainloop()
