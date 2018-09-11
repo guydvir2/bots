@@ -5,19 +5,19 @@ import time
 
 
 class TelegramBot(Thread):
-    def __init__(self, id=None, token=None):
+    def __init__(self, cid=None, token=None, welcome_msg=None):
         Thread.__init__(self)
         if id is None:
             self.chat_id = 596123373
         else:
-            self.chat_id = id
+            self.chat_id = cid
         if token is None:
             self.bot = telepot.Bot('497268459:AAFrPh-toL6DPPArWknqJzIAby8jMi21S4c')
         else:
             self.bot = telepot.Bot(token)
 
         self.me = self.bot.getMe()
-        self.send_msg("HomePi Telegram - Start")
+        self.send_msg(welcome_msg)
         self.telbot_arrived_msg = None
         self.msg_chtid = None
 
@@ -36,17 +36,3 @@ class TelegramBot(Thread):
         MessageLoop(self.bot, self.handle).run_as_thread()
         while True:
             time.sleep(1)
-
-
-if __name__ == "__main__":
-
-    def coms(msg):
-        if msg == '1':
-            print("ONR")
-        else:
-            print("OTHER")
-
-
-    a = MyTBot()
-    # a.commands(command)= lambda :com
-    a.start()
