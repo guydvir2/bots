@@ -7,7 +7,7 @@ import time
 class TelegramBot(Thread):
     def __init__(self, cid=None, token=None):
         Thread.__init__(self)
-        if id is None:
+        if cid is None:
             self.chat_id = 596123373
         else:
             self.chat_id = cid
