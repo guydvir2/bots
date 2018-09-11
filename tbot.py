@@ -5,7 +5,7 @@ import time
 
 
 class TelegramBot(Thread):
-    def __init__(self, cid=None, token=None, welcome_msg='HomePi'):
+    def __init__(self, cid=None, token=None):
         Thread.__init__(self)
         if id is None:
             self.chat_id = 596123373
@@ -17,7 +17,6 @@ class TelegramBot(Thread):
             self.bot = telepot.Bot(token)
 
         self.me = self.bot.getMe()
-        self.send_msg(welcome_msg)
         self.telbot_arrived_msg = None
         self.msg_chtid = None
 
