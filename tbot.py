@@ -12,7 +12,7 @@ class TelegramBot(Thread):
         else:
             self.chat_id = cid
         if token is None:
-            self.bot = telepot.Bot('497268459:AAFrPh-toL6DPPArWknqJzIAby8jMi21S4c')
+            self.bot = telepot.Bot('497268459:AAESYm27tJfNXwnnnn0slbmWnkqvbWgQEyw')
         else:
             self.bot = telepot.Bot(token)
 
@@ -35,3 +35,8 @@ class TelegramBot(Thread):
         MessageLoop(self.bot, self.handle).run_as_thread()
         while True:
             time.sleep(1)
+
+
+if __name__=="__main__":
+    tgram = TelegramBot()
+    tgram.send_msg("boooo")
