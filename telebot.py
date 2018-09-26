@@ -126,7 +126,7 @@ path.append(main_path + 'SmartHome/LocalSwitch')
 path.append(main_path + 'modules')
 path.append(main_path + 'SmartHome/LocalSwitch')
 path.append(main_path + 'SmartHome/RemoteSwitch')
-from gpiobuttonlib import HWRemoteOutput, HWRemoteInput
+# from gpiobuttonlib import HWRemoteOutput, HWRemoteInput
 
 root = tk.Tk()
 chat_id = 596123373
@@ -135,10 +135,10 @@ bot = telepot.Bot('497268459:AAFrPh-toL6DPPArWknqJzIAby8jMi21S4c')
 me = bot.getMe()
 root.title('Telegram BOT:' +me['first_name'] + '#' + str(me['id']))
 
-win1 = HWRemoteOutput(ip='192.168.2.114', output_pins=[19,26],switch_type='press')
-win2 = HWRemoteOutput(ip='192.168.2.116', output_pins=[19,26],switch_type='press')
+# win1 = HWRemoteOutput(ip='192.168.2.114', output_pins=[19,26],switch_type='press')
+# win2 = HWRemoteOutput(ip='192.168.2.116', output_pins=[19,26],switch_type='press')
 
-alarm_system = HWRemoteOutput(ip='192.168.2.117', output_pins=[16,26],switch_type='press')
+# alarm_system = HWRemoteOutput(ip='192.168.2.117', output_pins=[16,26],switch_type='press')
 #alarm_system_indicators = HWRemoteInput(ip='192.168.2.117', input_pins=[20,21],switch_mode='toggle')
 
 #alarm_system_ind_commands()
